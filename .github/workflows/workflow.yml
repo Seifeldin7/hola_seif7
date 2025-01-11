@@ -19,6 +19,8 @@ jobs:
         with:
           ruby-version: 3.1.6
           bundler-cache: true
+      - name: Install dependencies
+        run: bundle install
       - name: Publish to RubyGems
         run: |
           mkdir -p $HOME/.gem
