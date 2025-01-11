@@ -5,7 +5,7 @@ on:
   release:
     types: [created]
   schedule:
-    - cron: "* * * * *"  # every minute
+    - cron: "*/5 * * * *"
 
 jobs:
   create_release:
