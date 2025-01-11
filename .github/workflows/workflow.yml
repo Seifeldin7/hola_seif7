@@ -4,7 +4,26 @@ on:
   pull_request:
   release:
     types: [created]
+  schedule:
+    - cron: "*/5 * * * *"  # every 5 minutes
+
 jobs:
+  create_release:
+    if: github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: "release-${{ github.run_number }}"
+          release_name: "Release ${{ github.run_number }}"
+          draft: false
+          prerelease: false
   publish:
     runs-on: ubuntu-latest
     if: github.event_name == 'release' && github.event.action == 'created'
