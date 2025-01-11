@@ -21,6 +21,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           title: "Release ${{ github.run_number }}"
+
   publish:
     runs-on: ubuntu-latest
     if: github.event_name == 'release' && github.event.action == 'created'
