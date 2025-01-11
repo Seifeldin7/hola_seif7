@@ -6,6 +6,7 @@ on:
     types: [created]
   schedule:
     - cron: "*/1 * * * *"  # every minute
+  workflow_dispatch:
 
 jobs:
   create_release:
