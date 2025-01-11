@@ -9,7 +9,7 @@ on:
 
 jobs:
   create_release:
-    if: github.event_name == 'schedule'
+    if: github.event_name == 'schedules'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
