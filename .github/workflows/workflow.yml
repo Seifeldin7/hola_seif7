@@ -5,7 +5,7 @@ on:
   release:
     types: [created]
   schedule:
-    - cron: "*/5 * * * *"  # every minute
+    - cron: "* * * * *"  # every minute
 
 jobs:
   create_release:
@@ -18,7 +18,7 @@ jobs:
         id: create_release
         uses: elgohr/Github-Release-Action@v5
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PAT }}
         with:
           title: "Release ${{ github.run_number }}"
 
