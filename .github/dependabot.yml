@@ -1,0 +1,10 @@
+version: 2
+updates:
+  - package-ecosystem: bundler
+    directory: "/"
+    schedule:
+      day: saturday
+      interval: weekly
+      time: "03:10"
+      timezone: "Africa/Cairo"
+    open-pull-requests-limit: 50
